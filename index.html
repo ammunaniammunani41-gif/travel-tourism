@@ -62,12 +62,22 @@ iframe {
     line-height: 1.6;
 }
 .routes ul { list-style-type: disc; margin-left: 20px; }
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.6);
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 18px;
+}
 </style>
 </head>
 <body>
 <header>
     <h1>Travel & Tourism Guide</h1>
 </header>
+
 <div class="container">
     <label for="place">Select Place:</label>
     <select id="place">
@@ -94,81 +104,173 @@ iframe {
     </select>
 
     <button onclick="showPlace()">Show Details</button>
-
     <div class="place-info" id="place-info"></div>
 </div>
 
+<footer>
+    Designed By <span style="color:#d40000;">Batch 2</span>
+</footer>
+
 <script>
+/* -----------------------------------------------
+   COMPLETE DATA OF ALL 10 PLACES STARTS HERE
+------------------------------------------------ */
 const data = {
+
+  /* ---------------- GOA ---------------- */
   goa: {
     images:["images/goa/goa1.jpg","images/goa/goa2.jpg","images/goa/goa3.jpg","images/goa/goa4.jpg"],
     map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492481.233822923!2d73.38243955418312!3d15.348861194400566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62f34092!2sGoa!5e0!3m2!1sen!2sin!4v1763139056155!5m2!1sen!2sin",
     dishes:["Goan Fish Curry","Prawn Balchao","Bebinca","Chicken Xacuti"],
     besttime:"November to February – Pleasant winter months",
-    info:["Goa is famous for beaches, nightlife, and Portuguese culture.","Water sports and backwater cruises are popular.","Beautiful churches, casinos, and parties.","Seafood lovers' paradise.","Amazing sunsets on beaches.","Popular tourist destination.","Relaxing and vibrant atmosphere.","Local markets with handicrafts.","Historic forts like Aguada.","Night markets and flea markets."],
+    info:["Goa is famous for beaches, nightlife, and Portuguese culture.","Water sports and backwater cruises.","Beautiful churches and forts.","Seafood paradise.","Night markets and parties."],
     routes:{
-      car:{description:"Drive via NH66 or coastal routes.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Flexible stops","Comfortable for groups"], cons:["Traffic congestion"], tips:["Use GPS","Avoid peak hours"], stops:["Panaji","Margao","Vasco da Gama"]},
-      bus:{description:"State and private buses to major cities.", distance:"Varies", estimatedTime:"3-9 hours", pros:["Affordable","Overnight buses"], cons:["Crowded","Fixed schedule"], tips:["Book early","Carry snacks"], stops:["Panaji","Margao"]},
-      train:{description:"Direct trains to Madgaon or Thivim stations.", distance:"Varies", estimatedTime:"3-8 hours", pros:["Comfortable","Scenic journey"], cons:["Tickets sell out fast"], tips:["Book early","Prefer AC coaches"], stops:["Madgaon","Thivim"]},
-      flight:{description:"Dabolim Airport connects major cities.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fastest travel","Multiple airlines"], cons:["Airport transfers needed"], tips:["Check flight timings","Pre-book taxi"], stops:["Direct flights to Goa"]}
+      car:{description:"Drive via NH66.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Flexible"], cons:["Traffic"], tips:["Avoid peak hours"], stops:["Panaji","Margao"]},
+      bus:{description:"State & private buses.", distance:"Varies", estimatedTime:"3-9 hours", pros:["Cheap"], cons:["Crowded"], tips:["Book early"], stops:["Panaji","Margao"]},
+      train:{description:"Direct trains to Madgaon or Thivim.", distance:"Varies", estimatedTime:"3-8 hours", pros:["Scenic"], cons:["Fast filling"], tips:["Book early"], stops:["Madgaon","Thivim"]},
+      flight:{description:"Dabolim Airport.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fastest"], cons:["Taxi required"], tips:["Pre-book taxi"], stops:["Direct flights"]}
     }
   },
+
+  /* ---------------- OOTY ---------------- */
   ooty: {
     images:["images/ooty/ooty1.jpg","images/ooty/ooty2.jpg","images/ooty/ooty3.jpg","images/ooty/ooty4.jpg"],
     map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62575.05133734738!2d76.65222171990958!3d11.411849727066059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8bd84b5f3d78d%3A0x179bdb14c93e3f42!2sOoty%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1763140512697!5m2!1sen!2sin",
     dishes:["Varkey","Ooty Chocolate","South Indian Meals","Tea"],
-    besttime:"April to June – Pleasant summer & September to November – Autumn",
-    info:["Queen of hill stations.","Beautiful lakes and botanical gardens.","Nilgiri Mountain Railway scenic rides.","Tea plantations and plantations tours.","Cool climate and waterfalls.","Amazing viewpoints and parks.","Peaceful environment.","Popular honeymoon destination.","Local markets with handmade chocolates.","Trekking and nature walks."],
+    besttime:"April to June & September–November",
+    info:["Queen of hill stations.","Botanical gardens and lakes.","Nilgiri Mountain Railway ride.","Cool weather and tea estates.","Great viewpoints."],
     routes:{
-      car:{description:"Drive via NH181.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Flexible stops","Comfortable"], cons:["Hilly roads"], tips:["Check weather","Use GPS"], stops:["Coimbatore","Mettupalayam"]},
-      bus:{description:"State buses and private buses available.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Affordable"], cons:["Crowded"], tips:["Book early"], stops:["Coimbatore","Mettupalayam"]},
-      train:{description:"Nilgiri Mountain Railway from Mettupalayam.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Scenic journey"], cons:["Tickets limited"], tips:["Book early"], stops:["Mettupalayam","Ooty"]},
-      flight:{description:"Nearest airport: Coimbatore Airport.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fastest travel"], cons:["Airport transfer needed"], tips:["Pre-book taxi"], stops:["Direct flights to Coimbatore"]}
+      car:{description:"Drive via NH181.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Flexible"], cons:["Hilly roads"], tips:["Check weather"], stops:["Coimbatore","Mettupalayam"]},
+      bus:{description:"State & private buses.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Cheap"], cons:["Crowded"], tips:["Book early"], stops:["Coimbatore"]},
+      train:{description:"Nilgiri Railway.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Scenic"], cons:["Limited seats"], tips:["Book early"], stops:["Mettupalayam"]},
+      flight:{description:"Nearest: Coimbatore.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fast"], cons:["Taxi needed"], tips:["Pre-book cab"], stops:["Coimbatore Airport"]}
     }
   },
+
+  /* ---------------- KERALA ---------------- */
   kerala: {
     images:["images/kerala/kerala1.jpg","images/kerala/kerala2.jpg","images/kerala/kerala3.jpg","images/kerala/kerala4.jpg"],
     map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4016727.0275210617!2d73.49607661004777!3d10.533316853887486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0812ffd49cf55b%3A0x64bd90fbed387c99!2sKerala!5e0!3m2!1sen!2sin!4v1763140554634!5m2!1sen!2sin",
     dishes:["Appam","Karimeen Pollichathu","Sadya","Puttu"],
-    besttime:"September to March – Pleasant climate & backwater season",
-    info:["God's own country with backwaters and houseboats.","Munnar tea gardens and wildlife sanctuaries.","Kathakali dance performances and cultural experiences.","Beaches, lagoons, and Ayurvedic treatments.","Rich culture with temples and festivals.","Spice plantations and scenic landscapes.","Adventure activities like trekking.","Local cuisine is famous.","Historical forts and palaces.","Relaxing houseboat stays."],
+    besttime:"September to March",
+    info:["God's own country with backwaters.","Munnar tea gardens.","Kathakali art & culture.","Beaches & lagoons.","Houseboats & Ayurveda."],
     routes:{
-      car:{description:"Drive via NH66 or coastal roads.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Flexible stops"], cons:["Traffic in cities"], tips:["Use GPS","Avoid peak hours"], stops:["Kochi","Alappuzha"]},
-      bus:{description:"State and private buses.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Affordable"], cons:["Crowded"], tips:["Book early"], stops:["Kochi","Alappuzha"]},
-      train:{description:"Trains to major cities like Kochi, Trivandrum.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Comfortable"], cons:["Tickets limited"], tips:["Book early"], stops:["Kochi","Trivandrum"]},
-      flight:{description:"Airports in Kochi and Trivandrum.", distance:"Varies", estimatedTime:"1-2 hours flight", pros:["Fastest travel"], cons:["Airport transfer needed"], tips:["Pre-book taxi"], stops:["Direct flights to Kochi"]}
+      car:{description:"Drive via NH66.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Flexible"], cons:["Traffic"], tips:["Avoid peak hours"], stops:["Kochi","Alappuzha"]},
+      bus:{description:"KSRTC & private buses.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Cheap"], cons:["Crowded"], tips:["Book early"], stops:["Kochi"]},
+      train:{description:"Trains to Kochi & Trivandrum.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Comfortable"], cons:["Fast filling"], tips:["Book early"], stops:["Kochi"]},
+      flight:{description:"Airports: Kochi, Trivandrum.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fast"], cons:["Taxi needed"], tips:["Plan early"], stops:["Direct flights"]}
     }
   },
+
+  /* ---------------- DELHI ---------------- */
   delhi: {
     images:["images/delhi/delhi1.jpg","images/delhi/delhi2.jpg","images/delhi/delhi3.jpg","images/delhi/delhi4.jpg"],
     map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448196.5258974354!2d76.76357527440594!3d28.64368472817961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1763140610276!5m2!1sen!2sin",
-    dishes:["Chole Bhature","Butter Chicken","Paratha","Street Chaat"],
-    besttime:"October to March – Cool and pleasant weather",
-    info:["Capital of India with historical landmarks like Red Fort, Qutub Minar, and India Gate.","Vibrant street food culture and bustling markets.","Lotus Temple and Akshardham are major attractions.","Mix of modern and traditional India.","Museums and art galleries.","Political and cultural hub of India.","Shopping in Connaught Place and Chandni Chowk.","Rich cultural diversity.","Heritage walks and monuments.","Nightlife and rooftop cafes."],
+    dishes:["Chole Bhature","Butter Chicken","Paratha","Chaat"],
+    besttime:"October to March",
+    info:["Capital city.","Historic monuments.","Street food hub.","Markets like CP & Chandni Chowk.","Modern + traditional mix."],
     routes:{
-      car:{description:"Drive via NH44 or NH48 depending on origin city.", distance:"Varies", estimatedTime:"2-10 hours", pros:["Flexible stops","Comfortable for groups"], cons:["Traffic congestion"], tips:["Use GPS","Avoid peak hours"], stops:["Noida","Gurgaon","Dwarka"]},
-      bus:{description:"State and private buses from nearby cities.", distance:"Varies", estimatedTime:"2-10 hours", pros:["Affordable","Overnight buses"], cons:["Crowded","Fixed schedule"], tips:["Book early","Carry snacks"], stops:["Noida","Gurgaon","Dwarka"]},
-      train:{description:"Direct trains to New Delhi station from major cities.", distance:"Varies", estimatedTime:"2-10 hours", pros:["Comfortable","Scenic journey"], cons:["Tickets sell out","Fixed schedule"], tips:["Book early","Prefer AC coaches"], stops:["New Delhi","Old Delhi"]},
-      flight:{description:"Indira Gandhi International Airport connects major cities.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fastest","Multiple airlines"], cons:["Airport transfers needed"], tips:["Check flight timings","Pre-book taxi"], stops:["Direct flights to Delhi"]}
+      car:{description:"Drive via NH44.", distance:"Varies", estimatedTime:"2-10 hours", pros:["Flexible"], cons:["Traffic"], tips:["Avoid peak hours"], stops:["Noida","Gurgaon"]},
+      bus:{description:"State buses.", distance:"Varies", estimatedTime:"2-10 hours", pros:["Cheap"], cons:["Crowded"], tips:["Snacks"], stops:["Noida"]},
+      train:{description:"Trains to NDLS.", distance:"Varies", estimatedTime:"2-10 hours", pros:["Comfortable"], cons:["Fast filling"], tips:["Book early"], stops:["New Delhi"]},
+      flight:{description:"IGI Airport.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fast"], cons:["Taxi required"], tips:["Check timings"], stops:["Direct flights"]}
     }
   },
+
+  /* ---------------- MUMBAI ---------------- */
   mumbai: {
     images:["images/mumbai/mumbai1.jpg","images/mumbai/mumbai2.jpg","images/mumbai/mumbai3.jpg","images/mumbai/mumbai4.jpg"],
     map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.7017668614!2d72.71412843544772!3d19.08248221173264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1763140650396!5m2!1sen!2sin",
-    dishes:["Vada Pav","Pav Bhaji","Bombay Sandwich","Seafood"],
-    besttime:"November to February – Pleasant winter months",
-    info:["Financial capital of India and Bollywood hub.","Marine Drive, Gateway of India, and Elephanta Caves are key attractions.","Beaches, nightlife, and street food are famous.","Shopping in markets like Colaba and Crawford Market.","Diverse festivals and events throughout the year.","Cultural diversity and heritage buildings.","Local seafood specialties.","Boat rides and city tours.","Modern and cosmopolitan vibe.","Art galleries and museums."],
+    dishes:["Vada Pav","Pav Bhaji","Seafood","Bombay Sandwich"],
+    besttime:"November to February",
+    info:["Financial capital.","Marine Drive & Gateway.","Bollywood city.","Street food heaven.","Beaches & nightlife."],
     routes:{
-      car:{description:"Drive via NH48 or Mumbai-Pune Expressway.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Flexible stops","Comfortable for groups"], cons:["Traffic jams","Toll roads"], tips:["Use GPS","Avoid peak hours"], stops:["Pune","Thane","Navi Mumbai"]},
-      bus:{description:"State and private buses from nearby cities.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Affordable","Overnight buses"], cons:["Crowded","Fixed schedule"], tips:["Book early","Carry snacks"], stops:["Pune","Thane","Navi Mumbai"]},
-      train:{description:"Local and long-distance trains to Mumbai CST, Dadar, or Panvel.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Comfortable","Scenic journey"], cons:["Crowded","Tickets may sell out"], tips:["Book early","Prefer AC coaches"], stops:["CST","Dadar","Borivali"]},
-      flight:{description:"Chhatrapati Shivaji International Airport connects major cities.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fastest travel","Multiple airlines"], cons:["Airport transfer needed"], tips:["Pre-book taxi","Check flight timings"], stops:["Direct flights to Mumbai"]}
+      car:{description:"Drive via NH48.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Flexible"], cons:["Traffic"], tips:["GPS"], stops:["Pune"]},
+      bus:{description:"Private & state buses.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Cheap"], cons:["Crowded"], tips:["Book"], stops:["Thane"]},
+      train:{description:"Local & express trains.", distance:"Varies", estimatedTime:"3-12 hours", pros:["Fast"], cons:["Crowded"], tips:["Prefer AC"], stops:["CST"]},
+      flight:{description:"Mumbai Airport.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fast"], cons:["Taxi"], tips:["Check timings"], stops:["Direct flights"]}
     }
   },
 
-// Rest of places (Kolkata, Hyderabad, Chennai, Agra, Jaipur) will be added similarly, you can continue in the same structure
+  /* ---------------- KOLKATA ---------------- */
+  kolkata: {
+    images:["images/kolkata/kolkata1.jpg","images/kolkata/kolkata2.jpg","images/kolkata/kolkata3.jpg","images/kolkata/kolkata4.jpg"],
+    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235851.18194250483!2d88.03549774243454!3d22.535126919444384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1763140673492!5m2!1sen!2sin",
+    dishes:["Rosogolla","Kathi Roll","Macher Jhol","Mishti Doi"],
+    besttime:"October to March",
+    info:["Cultural capital.","Victoria Memorial.","Durga Puja celebrations.","Street food paradise.","Art & literature hub."],
+    routes:{
+      car:{description:"Drive via NH16.", distance:"Varies", estimatedTime:"4-14 hours", pros:["Flexible"], cons:["Traffic"], tips:["Google Maps"], stops:["Howrah"]},
+      bus:{description:"State buses.", distance:"Varies", estimatedTime:"4-14 hours", pros:["Cheap"], cons:["Crowded"], tips:["Snacks"], stops:["Durgapur"]},
+      train:{description:"Trains to Howrah/Sealdah.", distance:"Varies", estimatedTime:"4-14 hours", pros:["Comfortable"], cons:["Fast filling"], tips:["Early booking"], stops:["Howrah"]},
+      flight:{description:"Kolkata Airport.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fast"], cons:["Taxi"], tips:["Check updates"], stops:["Direct flights"]}
+    }
+  },
 
-};
+  /* ---------------- HYDERABAD ---------------- */
+  hyderabad: {
+    images:["images/hyderabad/hyderabad1.jpg","images/hyderabad/hyderabad2.jpg","images/hyderabad/hyderabad3.jpg","images/hyderabad/hyderabad4.jpg"],
+    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3420350822!2d78.24323260275465!3d17.412281015798094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1763140693155!5m2!1sen!2sin",
+    dishes:["Hyderabadi Biryani","Haleem","Double Ka Meetha","Salan"],
+    besttime:"October to February",
+    info:["City of Nizams.","Charminar & Golconda.","Tech city.","Pearl markets.","Ramoji Film City."],
+    routes:{
+      car:{description:"Drive via NH44.", distance:"Varies", estimatedTime:"4-12 hours", pros:["Flexible"], cons:["Traffic"], tips:["Use GPS"], stops:["Secunderabad"]},
+      bus:{description:"TSRTC buses.", distance:"Varies", estimatedTime:"4-12 hours", pros:["Cheap"], cons:["Crowded"], tips:["Book"], stops:["Nizamabad"]},
+      train:{description:"Trains to Hyderabad.", distance:"Varies", estimatedTime:"4-12 hours", pros:["Comfortable"], cons:["Tickets"], tips:["Book early"], stops:["Hyderabad Deccan"]},
+      flight:{description:"RGIA Airport.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fast"], cons:["Taxi needed"], tips:["Pre-book taxi"], stops:["Direct flights"]}
+    }
+  },
+
+  /* ---------------- CHENNAI ---------------- */
+  chennai: {
+    images:["images/chennai/chennai1.jpg","images/chennai/chennai2.jpg","images/chennai/chennai3.jpg","images/chennai/chennai4.jpg"],
+    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248756.13131215327!2d80.04385990188901!3d13.047473316368212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1763140765812!5m2!1sen!2sin",
+    dishes:["Idli","Dosa","Filter Coffee","Chettinad Chicken"],
+    besttime:"November to February",
+    info:["Marina Beach.","Temples & culture.","South Indian food.","Shopping streets.","Heritage city."],
+    routes:{
+      car:{description:"Drive via NH32.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Flexible"], cons:["Traffic"], tips:["Avoid peak hours"], stops:["Tambaram"]},
+      bus:{description:"TNSTC buses.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Cheap"], cons:["Crowded"], tips:["Book"], stops:["Chengalpattu"]},
+      train:{description:"Trains to Chennai Central.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Comfortable"], cons:["Tickets"], tips:["Book early"], stops:["Egmore"]},
+      flight:{description:"Chennai Airport.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fast"], cons:["Taxi"], tips:["Plan early"], stops:["Direct flights"]}
+    }
+  },
+
+  /* ---------------- AGRA ---------------- */
+  agra: {
+    images:["images/agra/agra1.jpg","images/agra/agra2.jpg","images/agra/agra3.jpg","images/agra/agra4.jpg"],
+    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113579.79425687868!2d77.89761131626922!3d27.176150424539962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39740d857c2f41d9%3A0x784aef38a9523b42!2sAgra%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1763140741992!5m2!1sen!2sin",
+    dishes:["Petha","Agra Biryani","Bedai","Dal Moth"],
+    besttime:"October to March",
+    info:["Home of Taj Mahal.","Agra Fort.","Mughal architecture.","Local sweets.","Heritage city."],
+    routes:{
+      car:{description:"Drive via Yamuna Expressway.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Smooth road"], cons:["Toll"], tips:["Check fuel"], stops:["Mathura"]},
+      bus:{description:"UPSRTC buses.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Cheap"], cons:["Crowded"], tips:["Snacks"], stops:["Mathura"]},
+      train:{description:"Trains to Agra Cantt.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Comfortable"], cons:["Tickets"], tips:["Book early"], stops:["Agra Fort"]},
+      flight:{description:"Kheria Airport.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fast"], cons:["Limited flights"], tips:["Confirm schedule"], stops:["Direct flights"]}
+    }
+  },
+
+  /* ---------------- JAIPUR ---------------- */
+  jaipur: {
+    images:["images/jaipur/jaipur1.jpg","images/jaipur/jaipur2.jpg","images/jaipur/jaipur3.jpg","images/jaipur/jaipur4.jpg"],
+    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227749.0532105637!2d75.6257461467094!3d26.885115144795197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1763140813318!5m2!1sen!2sin",
+    dishes:["Dal Baati Churma","Ghewar","Laal Maas","Pyaz Kachori"],
+    besttime:"October to March",
+    info:["Pink city.","Forts & palaces.","Local bazaars.","Camel rides.","Cultural festivals."],
+    routes:{
+      car:{description:"Drive via NH48.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Flexible"], cons:["Traffic"], tips:["Avoid peak hours"], stops:["Ajmer"]},
+      bus:{description:"RSRTC buses.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Cheap"], cons:["Crowded"], tips:["Snacks"], stops:["Dausa"]},
+      train:{description:"Trains to Jaipur.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Comfortable"], cons:["Tickets"], tips:["Book"], stops:["Jaipur Junction"]},
+      flight:{description:"Jaipur Airport.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fast"], cons:["Taxi needed"], tips:["Plan early"], stops:["Direct flights"]}
+    }
+  }
+
+}; 
+/* -----------------------------------------------
+   END OF FULL PLACE DATA
+------------------------------------------------ */
 
 function showPlace(){
     const place = document.getElementById('place').value;
@@ -183,110 +285,36 @@ function showPlace(){
     const p = data[place];
     let html = `<h2>${place.charAt(0).toUpperCase()+place.slice(1)}</h2>`;
     
-    // Images
     html += '<div class="images">';
-    p.images.forEach(img => { html += `<img src="${img}" alt="${place}">`; });
+    p.images.forEach(img => { 
+        html += `<img src="${img}" alt="${place}">`; 
+    });
     html += '</div>';
 
-    // Map
     html += `<iframe src="${p.map}" allowfullscreen="" loading="lazy"></iframe>`;
-
-    // Best Time
     html += `<div class="besttime"><h3>Best Time to Visit:</h3><p>${p.besttime}</p></div>`;
-
-    // Dishes
     html += '<div class="dishes"><h3>Popular Dishes:</h3><ul>';
     p.dishes.forEach(d => { html += `<li>${d}</li>`; });
     html += '</ul></div>';
 
-    // Info
     html += '<div class="details"><h3>About the Place:</h3><ul>';
     p.info.forEach(i => { html += `<li>${i}</li>`; });
     html += '</ul></div>';
 
-    // Vehicle Routes
-    html += `<div class="routes"><h3>Travel by ${vehicle.charAt(0).toUpperCase()+vehicle.slice(1)}:</h3>`;
-    html += `<p>${p.routes[vehicle].description}</p>`;
+    html += `<div class="routes"><h3>Travel by ${vehicle.toUpperCase()}:</h3>`;
     html += `<ul>`;
-    html += `<li>Distance: ${p.routes[vehicle].distance}</li>`;
-    html += `<li>Estimated Time: ${p.routes[vehicle].estimatedTime}</li>`;
-    html += `<li>Pros: ${p.routes[vehicle].pros.join(', ')}</li>`;
-    html += `<li>Cons: ${p.routes[vehicle].cons.join(', ')}</li>`;
-    html += `<li>Tips: ${p.routes[vehicle].tips.join(', ')}</li>`;
-    html += `<li>Stops: ${p.routes[vehicle].stops.join(', ')}</li>`;
+    html += `<li><b>Description:</b> ${p.routes[vehicle].description}</li>`;
+    html += `<li><b>Distance:</b> ${p.routes[vehicle].distance}</li>`;
+    html += `<li><b>Estimated Time:</b> ${p.routes[vehicle].estimatedTime}</li>`;
+    html += `<li><b>Pros:</b> ${p.routes[vehicle].pros.join(', ')}</li>`;
+    html += `<li><b>Cons:</b> ${p.routes[vehicle].cons.join(', ')}</li>`;
+    html += `<li><b>Tips:</b> ${p.routes[vehicle].tips.join(', ')}</li>`;
+    html += `<li><b>Stops:</b> ${p.routes[vehicle].stops.join(', ')}</li>`;
     html += `</ul></div>`;
 
     infoDiv.innerHTML = html;
 }
 </script>
+
 </body>
 </html>
-kolkata: {
-    images:["images/kolkata/kolkata1.jpg","images/kolkata/kolkata2.jpg","images/kolkata/kolkata3.jpg","images/kolkata/kolkata4.jpg"],
-    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235851.18194250483!2d88.03549774243454!3d22.535126919444384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1763140673492!5m2!1sen!2sin",
-    dishes:["Rosogolla","Kathi Roll","Macher Jhol","Mishti Doi"],
-    besttime:"October to March – Pleasant winter season",
-    info:["Cultural capital of India with historic architecture.","Victoria Memorial and Howrah Bridge are key landmarks.","Durga Puja festival is world-famous.","Street food is delicious and diverse.","Rich literary and artistic heritage.","Boat rides on Hooghly River.","Shopping hubs and markets.","Educational centers like universities and colleges.","Traditional sweets are a must-try.","Local theaters and cultural events."],
-    routes:{
-      car:{description:"Drive via NH16 or NH19.", distance:"Varies", estimatedTime:"4-14 hours", pros:["Flexible stops","Comfortable"], cons:["Traffic in city"], tips:["Use GPS","Avoid peak hours"], stops:["Durgapur","Burdwan","Howrah"]},
-      bus:{description:"State and private buses available.", distance:"Varies", estimatedTime:"4-14 hours", pros:["Affordable"], cons:["Crowded"], tips:["Book early"], stops:["Durgapur","Burdwan"]},
-      train:{description:"Direct trains to Howrah/Kolkata station.", distance:"Varies", estimatedTime:"4-14 hours", pros:["Comfortable","Scenic journey"], cons:["Tickets sell out fast"], tips:["Book early"], stops:["Howrah","Sealdah"]},
-      flight:{description:"Netaji Subhash Chandra Bose International Airport.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fastest travel"], cons:["Airport transfer needed"], tips:["Check flight timings"], stops:["Direct flights to Kolkata"]}
-    }
-  },
-
-hyderabad: {
-    images:["images/hyderabad/hyderabad1.jpg","images/hyderabad/hyderabad2.jpg","images/hyderabad/hyderabad3.jpg","images/hyderabad/hyderabad4.jpg"],
-    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3420350822!2d78.24323260275465!3d17.412281015798094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1763140693155!5m2!1sen!2sin",
-    dishes:["Hyderabadi Biryani","Haleem","Double Ka Meetha","Mirchi Ka Salan"],
-    besttime:"October to February – Cool and comfortable weather",
-    info:["City of Nizams with rich history.","Charminar and Golconda Fort are must-visit.","Ramoji Film City is a famous tourist attraction.","Known for IT and tech hubs.","Pearl markets and shopping streets.","Hyderabadi cuisine is world-famous.","Lakes and gardens offer scenic beauty.","Cultural festivals like Bonalu.","Historic monuments and museums.","Blend of modern and traditional culture."],
-    routes:{
-      car:{description:"Drive via NH44 or NH65.", distance:"Varies", estimatedTime:"4-12 hours", pros:["Flexible stops"], cons:["Traffic jams"], tips:["Use GPS","Check route"], stops:["Secunderabad","Nizamabad"]},
-      bus:{description:"State and private buses from nearby cities.", distance:"Varies", estimatedTime:"4-12 hours", pros:["Affordable"], cons:["Crowded"], tips:["Book early"], stops:["Secunderabad","Nizamabad"]},
-      train:{description:"Trains to Hyderabad Deccan or Secunderabad stations.", distance:"Varies", estimatedTime:"4-12 hours", pros:["Comfortable","Scenic journey"], cons:["Tickets may sell out"], tips:["Book early"], stops:["Secunderabad","Hyderabad Deccan"]},
-      flight:{description:"Rajiv Gandhi International Airport connects major cities.", distance:"Varies", estimatedTime:"1-3 hours", pros:["Fastest travel"], cons:["Airport transfer needed"], tips:["Pre-book taxi"], stops:["Direct flights to Hyderabad"]}
-    }
-  },
-
-chennai: {
-    images:["images/chennai/chennai1.jpg","images/chennai/chennai2.jpg","images/chennai/chennai3.jpg","images/chennai/chennai4.jpg"],
-    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248756.13131215327!2d80.04385990188901!3d13.047473316368212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1763140765812!5m2!1sen!2sin",
-    dishes:["Idli","Dosa","Filter Coffee","Chettinad Chicken"],
-    besttime:"November to February – Pleasant winter months",
-    info:["Marina Beach is the iconic attraction.","Temples and churches with Dravidian architecture.","Cultural hub with music and dance.","Educational institutions and historical landmarks.","Street food famous for South Indian delicacies.","Shopping streets like T Nagar.","Heritage architecture and museums.","Gateway to South India.","Local festivals and celebrations.","Vibrant city life with coastal charm."],
-    routes:{
-      car:{description:"Drive via GST Road or NH32.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Flexible stops"], cons:["City traffic"], tips:["Use GPS","Avoid peak hours"], stops:["Tambaram","Chengalpattu"]},
-      bus:{description:"State buses and private buses.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Affordable"], cons:["Crowded"], tips:["Book early"], stops:["Tambaram","Chengalpattu"]},
-      train:{description:"Trains to Chennai Central or Egmore stations.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Comfortable"], cons:["Tickets sell out"], tips:["Book early"], stops:["Chennai Central","Egmore"]},
-      flight:{description:"Chennai International Airport for domestic & international flights.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fastest travel"], cons:["Airport transfer needed"], tips:["Pre-book taxi"], stops:["Direct flights to Chennai"]}
-    }
-  },
-
-agra: {
-    images:["images/agra/agra1.jpg","images/agra/agra2.jpg","images/agra/agra3.jpg","images/agra/agra4.jpg"],
-    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113579.79425687868!2d77.89761131626922!3d27.176150424539962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39740d857c2f41d9%3A0x784aef38a9523b42!2sAgra%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1763140741992!5m2!1sen!2sin",
-    dishes:["Petha","Agra Biryani","Bedai","Dal Moth"],
-    besttime:"October to March – Cool and pleasant winter months",
-    info:["Home of the Taj Mahal, a UNESCO World Heritage site.","Agra Fort and Fatehpur Sikri nearby.","Mughal architecture and historical significance.","Yamuna river offers scenic views.","Famous for marble crafts and local sweets.","Tourist-friendly city with heritage walks.","Cultural festivals throughout the year.","Photography hotspot.","Local markets with handicrafts.","Historic mosques and tombs."],
-    routes:{
-      car:{description:"Drive via Yamuna Expressway or NH44.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Flexible stops"], cons:["Traffic congestion"], tips:["Use GPS","Avoid peak hours"], stops:["Mathura","Fatehpur Sikri"]},
-      bus:{description:"State and private buses from nearby cities.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Affordable"], cons:["Crowded"], tips:["Book early"], stops:["Mathura","Fatehpur Sikri"]},
-      train:{description:"Direct trains to Agra Cantt or Fort stations.", distance:"Varies", estimatedTime:"2-8 hours", pros:["Comfortable"], cons:["Tickets sell out fast"], tips:["Book early"], stops:["Agra Cantt","Agra Fort"]},
-      flight:{description:"Kheria Airport connects nearby cities.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fastest travel"], cons:["Limited flights"], tips:["Pre-book taxi"], stops:["Direct flights to Agra"]}
-    }
-  },
-
-jaipur: {
-    images:["images/jaipur/jaipur1.jpg","images/jaipur/jaipur2.jpg","images/jaipur/jaipur3.jpg","images/jaipur/jaipur4.jpg"],
-    map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227749.0532105637!2d75.6257461467094!3d26.885115144795197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1763140813318!5m2!1sen!2sin",
-    dishes:["Dal Baati Churma","Ghewar","Laal Maas","Pyaz Kachori"],
-    besttime:"October to March – Pleasant winter months",
-    info:["Pink City with rich Rajasthani culture.","Amber Fort and City Palace are must-visits.","Hawa Mahal and local markets.","Traditional handicrafts and colorful bazaars.","Camel rides and heritage experiences.","Palaces and gardens for sightseeing.","Festivals like Teej and Gangaur.","Local cuisine is flavorful.","Historic forts and temples.","Tourism hotspot for heritage enthusiasts."],
-    routes:{
-      car:{description:"Drive via NH48 or NH21.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Flexible stops"], cons:["Traffic congestion"], tips:["Use GPS","Avoid peak hours"], stops:["Ajmer","Dausa"]},
-      bus:{description:"State and private buses from nearby cities.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Affordable"], cons:["Crowded"], tips:["Book early"], stops:["Ajmer","Dausa"]},
-      train:{description:"Direct trains to Jaipur station.", distance:"Varies", estimatedTime:"3-10 hours", pros:["Comfortable"], cons:["Tickets sell out fast"], tips:["Book early"], stops:["Jaipur"]},
-      flight:{description:"Jaipur International Airport.", distance:"Varies", estimatedTime:"1-2 hours", pros:["Fastest travel"], cons:["Airport transfer needed"], tips:["Pre-book taxi"], stops:["Direct flights to Jaipur"]}
-    }
-  }
